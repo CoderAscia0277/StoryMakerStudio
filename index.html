@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <script type="importmap">
+              {
+                "imports": {
+                  "@google/generative-ai": "https://esm.run/@google/generative-ai"
+                }
+              }
+        </script>
+        <script type="module" src="./index.js"></script>
+        <div class="header"><div id="menu"><img src="menu.png" alt="none"></div><h2>Story Maker Studio</h2></div>
+        <div class="main">
+            <div class="chat_container" id="chat_container">
+       
+            </div>
+            <div class="text_area">
+                <input id="message" type="text" rows="1" dir="" autocapitalize="off" autocomplete="off" autocomplete="both" spellcheck="false" label="Ask me anything..." autocorrect="off" maxlength="2000" placeholder="Ask me anything..." autofocus=""/>
+                <div id="button" onclick="send_message()"><img id="send" src="send_button.png" alt="none"/></div>
+            </div>
+        </div>
+    </body>
+</html>
