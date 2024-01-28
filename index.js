@@ -21,7 +21,7 @@ const chatGemini = async (message) => {
         let summary = json_response.STORY_SUMMARY; // gets the story summary
         let bot_response = json_response.RESPONSE; // gets the AI response
         let user = {author:message};
-        let bot = {'ASCII':bot_response};
+        let bot = {'ISLA':bot_response};
         prev_convo.push(user);// add the user message to prev convo
         prev_convo.push(bot);// add the bot message to prev convo
         create_bot_message(bot_response);
