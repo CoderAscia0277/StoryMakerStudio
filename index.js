@@ -29,6 +29,22 @@ const chatGemini = async (message) => {
         create_bot_message("Sorry, what was that again?");
    }
 }
+document.addEventListener('keydown',check_message);
+function check_message(e){ // this function is triggered everytime a key is pressed
+    let message = document.getElementById('message').value;
+    let button = document.getElementById('send');
+   
+    if(e.code == "Enter"){
+      send_message();
+    }
+    else if(message.length >= 5){
+      button.style.opacity = 0.85;
+    }
+    else{
+      button.style.opacity = 0.45;
+    }
+  
+}
 function send_message(){
     let button = document.getElementById('send');
     let message = document.getElementById('message').value;
@@ -57,22 +73,10 @@ function send_message(){
          return;
      }
  }
- document.addEventListener('keydown',check_message);
- function check_message(e){ // this function is triggered everytime a key is pressed
-     let message = document.getElementById('message').value;
-     let button = document.getElementById('send');
-    
-     if(e.code == "Enter"){
-       send_message();
-     }
-     else if(message.length >= 5){
-       button.style.opacity = 0.85;
-     }
-     else{
-       button.style.opacity = 0.45;
-     }
-   
- }
+ document.getElementById('button').onclick = function() {
+  send_message();
+};
+
 function create_user_message(message){ //this function creates a new message bubble for the user's input
     let chat_container = document.getElementById('chat_container'); // initialize the chat container
     let user_row = document.createElement('div');// creates a div for the user row
