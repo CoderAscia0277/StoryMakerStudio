@@ -1,6 +1,35 @@
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+function send_message(){
+  let button = document.getElementById('send');
+  let message = document.getElementById('message').value;
+  if(message.length >= 5){
+     document.getElementById('chat_container').scrollTop = 1000;
+     document.getElementById('message').value = "";
+     button.style.opacity = 0.45;
+     button.style.animation = "button_pulse 0.5s ease-in-out";
+     create_user_message(message);
+     
+     setTimeout(()=>{ //reset the button animation so it can be use again
+         button.style.animation = "";
+     },500);
+     
+     setTimeout(()=>{// calls the loading function
+         add_loading_message();
+     },500);
+     try{
+       chatGemini(message);
+     }
+     catch{
+      create_bot_message("Sorry an error has occured");
+     }
+   }
+   else{
+       return;
+   }
+}
+
 let prev_convo = [];
 const genAI = new GoogleGenerativeAI("AIzaSyD0L0sE02V3kAwJXyNOSVg1rP3S6n5FgcE");
 const gen_model = genAI.getGenerativeModel({ model: "gemini-pro" });
@@ -29,34 +58,7 @@ const chatGemini = async (message) => {
         create_bot_message("Sorry, what was that again?");
    }
 }
-function send_message(){
-    let button = document.getElementById('send');
-    let message = document.getElementById('message').value;
-    if(message.length >= 5){
-       document.getElementById('chat_container').scrollTop = 1000;
-       document.getElementById('message').value = "";
-       button.style.opacity = 0.45;
-       button.style.animation = "button_pulse 0.5s ease-in-out";
-       create_user_message(message);
-       
-       setTimeout(()=>{ //reset the button animation so it can be use again
-           button.style.animation = "";
-       },500);
-       
-       setTimeout(()=>{// calls the loading function
-           add_loading_message();
-       },500);
-       try{
-         chatGemini(message);
-       }
-       catch{
-        create_bot_message("Sorry an error has occured");
-       }
-     }
-     else{
-         return;
-     }
- }
+
  document.addEventListener('keydown',check_message);
  function check_message(e){ // this function is triggered everytime a key is pressed
      let message = document.getElementById('message').value;
