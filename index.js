@@ -7,7 +7,7 @@ const gen_model = genAI.getGenerativeModel({ model: "gemini-pro" });
 const chat = gen_model.startChat({
     generationConfig: {
         temperature:0.9,
-        maxOutputTokens: 200
+        maxOutputTokens: 500
     },
   });
 const chatGemini = async (message) => {
