@@ -2,7 +2,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 let prev_convo = [];
-const genAI = new GoogleGenerativeAI("AIzaSyD0L0sE02V3kAwJXyNOSVg1rP3S6n5FgcE");
+const genAI = new GoogleGenerativeAI("AIzaSyDVhBKycCW9cgm4mCH7FbJ18PC_Cea3mn8");
 const gen_model = genAI.getGenerativeModel({ model: "gemini-pro" });
 const chat = gen_model.startChat({
     generationConfig: {
