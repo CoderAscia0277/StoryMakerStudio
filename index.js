@@ -2,7 +2,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 let prev_convo = [];
-const genAI = new GoogleGenerativeAI("AIzaSyDVhBKycCW9cgm4mCH7FbJ18PC_Cea3mn8");
+const genAI = new GoogleGenerativeAI("none);
 const gen_model = genAI.getGenerativeModel({ model: "gemini-pro" });
 const chat = gen_model.startChat({
     generationConfig: {
@@ -12,7 +12,7 @@ const chat = gen_model.startChat({
   });
 const chatGemini = async (message) => {
 
-   try{
+   /*try{
         let add_format = format(message,prev_convo)
         let res = await chat.sendMessage(add_format);
         res = await res.response;
@@ -25,9 +25,9 @@ const chatGemini = async (message) => {
         prev_convo.push(user);// add the user message to prev convo
         prev_convo.push(bot);// add the bot message to prev convo
         create_bot_message(bot_response);
-   }catch{
+   }catch{*/
         create_bot_message("Sorry, what was that again?");
-   }
+  // }
 }
 document.addEventListener('keydown',check_message);
 function check_message(e){ // this function is triggered everytime a key is pressed
