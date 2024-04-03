@@ -12,10 +12,11 @@ const chat = gen_model.startChat({
   });
 const chatGemini = async (message) => {
 
-   /*try{
+   try{
         let add_format = format(message,prev_convo)
-        let res = await chat.sendMessage(add_format);
-        res = await res.response;
+        /*let res = await chat.sendMessage(add_format);"/
+        
+        let res = 'disabled';
         let json_response = JSON.parse(res.text());
         let author = json_response.AUTHOR_NAME;// gets the author name
         let summary = json_response.STORY_SUMMARY; // gets the story summary
@@ -25,9 +26,9 @@ const chatGemini = async (message) => {
         prev_convo.push(user);// add the user message to prev convo
         prev_convo.push(bot);// add the bot message to prev convo
         create_bot_message(bot_response);
-   }catch{*/
+   }catch{
         create_bot_message("Sorry, what was that again?");
-  // }
+  }
 }
 document.addEventListener('keydown',check_message);
 function check_message(e){ // this function is triggered everytime a key is pressed
